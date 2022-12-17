@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.TankDrive;
 import frc.robot.commands.autos.GameAuto;
 import frc.robot.subsystems.Drivetrain;
@@ -52,7 +53,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     // The default driving command is tank drive
     Drivetrain.getInstance().setDefaultCommand(
-      new TankDrive(() -> driverController.getLeftY(), () -> driverController.getRightY())
+      new ArcadeDrive(() -> driverController.getRightX(), () -> driverController.getLeftY())
     );
 
     // This is the autonomous code that runs
